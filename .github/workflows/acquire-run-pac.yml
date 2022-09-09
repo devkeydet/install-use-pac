@@ -17,5 +17,5 @@ jobs:
           $version = "1.17.5"
           $currentDir = Get-Location
           nuget install $pacNuget -Version $version
-          $pacPath = "$currentDir\$pacNuget.$version"
+          $pacPath = "$currentDir/$pacNuget.$version"
           echo $pacPath >> $GITHUB_PATH
