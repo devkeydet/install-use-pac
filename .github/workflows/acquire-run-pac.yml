@@ -15,5 +15,8 @@ jobs:
         run: |
           $pacNuget = "Microsoft.PowerApps.CLI"
           $version = "1.17.5"
+          $currentDir = Get-Location
           nuget install $pacNuget -Version $version
+          $pacPath = "{$currentDir}\{$pacNuget}.{$version}"
+          echo $pacPath
           
