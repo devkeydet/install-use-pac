@@ -18,7 +18,7 @@ jobs:
           $currentDir = Get-Location
           nuget install $pacNuget -Version $version
           $pacPath = "$currentDir/$pacNuget.$version"
-          echo "::add-path::$pacPath" 
+          echo $pacPath | Out-File -FilePath $env:GITHUB_PATH -Append
           
       - name: use pac
         shell: pwsh
