@@ -13,7 +13,7 @@ jobs:
       - name: install pac
         shell: pwsh
         run: |
-          dotnet tool install --global Microsoft.PowerApps.CLI.Tool
+          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.23.3
           
       - name: use pac
         shell: pwsh
