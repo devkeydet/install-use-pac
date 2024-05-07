@@ -1,0 +1,16 @@
+name: test-if-pac-on-path
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v2
+
+      # Runs a set of commands using the runners shell
+      - name: execute pac directly
+        run: |
+          pac help
