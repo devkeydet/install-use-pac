@@ -11,7 +11,7 @@ jobs:
         uses: microsoft/powerplatform-actions/actions-install@v1
       - name: add pac to path
         run: |
-          echo $env:POWERPLATFORMTOOLS_PACCLIPATH >> $GITHUB_PATH
+          echo $env:POWERPLATFORMTOOLS_PACCLIPATH + "\pac\tools" >> $GITHUB_PATH
       - name: execute pac directly
         shell: pwsh
         run: |
