@@ -12,14 +12,13 @@ jobs:
         uses: microsoft/powerplatform-actions/actions-install@v1
         with:
           add-tools-to-path: true
-      - name: Install Power Platform Actions
-        uses: microsoft/powerplatform-actions/who-am-i@v1
-        with:
-          environment-url: ${{ secrets.ENVIRONMENT_URL }}
-          tenant-id: ${{ secrets.TENANT_ID }}
-          app-id: ${{ secrets.APP_ID }}
-          client-secret: ${{ secrets.CLIENT_SECRET }}
-      - name: execute pac directly
+      - name: create pac auth profile
         shell: pwsh
         run: |
+          # create a pac auth profile
+          pac auth create --name temp-for-workflow --url ${{ secrets.ENVIRONMENT_URL }} --applicationId ${{ secrets.APP_ID }} --clientSecret ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
+      - name: use pac
+        shell: pwsh
+        run: |
+          # use pac with the profile created
           pac auth who
