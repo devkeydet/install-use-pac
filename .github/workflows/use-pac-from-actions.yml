@@ -15,6 +15,7 @@ jobs:
       - name: create pac auth profile
         shell: pwsh
         run: |
+          # create a pac auth profile
           pac auth create --name temp-for-workflow --url ${{ secrets.ENVIRONMENT_URL }} --applicationId ${{ secrets.APP_ID }} --clientSecret ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
       - name: use pac
         shell: pwsh
