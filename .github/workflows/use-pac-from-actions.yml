@@ -19,7 +19,11 @@ jobs:
           tenant-id: ${{ secrets.TENANT_ID }}
           app-id: ${{ secrets.APP_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
-      - name: execute pac directly
+      - name: create pac auth profile
+        shell: pwsh
+        run: |
+          pac auth create --name temp-for-workflow --url ${{ secrets.ENVIRONMENT_URL }} --applicationId ${{ secrets.APP_ID }} --clientSecret ${{ secrets.CLIENT_SECRET }} --tenant ${{ secrets.TENANT_ID }}
+      - name: create pac auth profile
         shell: pwsh
         run: |
           pac auth who
