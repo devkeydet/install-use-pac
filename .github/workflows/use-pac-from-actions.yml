@@ -1,0 +1,17 @@
+name: use-pac-from-actions
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Power Platform Tools
+        uses: microsoft/powerplatform-actions/actions-install@v2
+        with:
+          add-tools-to-path: true
+      - name: execute pac directly
+        shell: pwsh
+        run: |
+          pac help
